@@ -1,0 +1,1 @@
+import"./hoisted.CMOFiljB.js";const e=document.getElementById("contact-form");e&&e.addEventListener("submit",o=>{o.preventDefault(),alert("Thank you for your message! This is a demo form. In production, you would connect this to an email service or backend."),e.reset()});

@@ -1,0 +1,348 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = [
+    {
+      slug: "starting-your-running-journey",
+      title: "Starting Your Running Journey: A Beginner's Guide",
+      date: "2024-03-15",
+      author: "Matthew Brunken",
+      readTime: "5 min read",
+      excerpt: "Thinking about taking up running? Here's everything you need to know to start your running journey on the right foot.",
+      content: `
+        <p>Starting a running journey can be both exciting and intimidating. Whether you're looking to improve your fitness, lose weight, or simply try something new, running is one of the most accessible forms of exercise. Here's your comprehensive guide to getting started.</p>
+
+        <h2>Why Running?</h2>
+        <p>Running offers numerous benefits for both physical and mental health. From improved cardiovascular fitness to reduced stress levels, the advantages are well-documented. Plus, all you need is a good pair of shoes and the willingness to put one foot in front of the other.</p>
+
+        <h2>Getting Started</h2>
+        <p>The most important thing when starting out is to go slow. Many beginners make the mistake of trying to do too much too soon, which often leads to injury or burnout. Instead, follow the 10% rule: never increase your weekly mileage by more than 10% from one week to the next.</p>
+
+        <h2>Essential Gear</h2>
+        <p>While running is a minimalist sport, there are a few essentials you'll need:</p>
+        <ul>
+          <li><strong>Running Shoes:</strong> Visit a specialty running store to get fitted properly. Your gait, foot shape, and running style all matter when selecting the right shoe.</li>
+          <li><strong>Comfortable Clothing:</strong> Opt for moisture-wicking fabrics that keep you dry and comfortable.</li>
+          <li><strong>Watch or Phone:</strong> To track your progress and stay motivated.</li>
+        </ul>
+
+        <h2>Creating a Schedule</h2>
+        <p>If you're new to running, consider following a walk-run program. Start with short intervals of running mixed with walking, gradually increasing the running portions as your fitness improves. Consistency is more important than intensity when you're starting out.</p>
+
+        <h2>Listening to Your Body</h2>
+        <p>Pay attention to warning signs like persistent pain, unusual fatigue, or decreased performance. Some muscle soreness is normal, especially when starting, but sharp pain is a signal to rest and recover.</p>
+
+        <h2>Finding Motivation</h2>
+        <p>Join a local running group, follow running communities on social media, or find a running buddy. Having accountability and support can make a huge difference in staying consistent with your new running habit.</p>
+
+        <h2>Conclusion</h2>
+        <p>Remember, every runner has to start somewhere. The fact that you're considering starting is already a huge step in the right direction. Be patient with yourself, celebrate small victories, and most importantly, enjoy the journey. Lace up those shoes and take that first step today!</p>
+      `
+    },
+    {
+      slug: "training-through-nebraska-seasons",
+      title: "Training Through Nebraska's Four Seasons",
+      date: "2024-02-28",
+      author: "Matthew Brunken",
+      readTime: "7 min read",
+      excerpt: "From hot summer mornings to cold winter trails, learn how to adapt your running routine to Nebraska's diverse weather conditions.",
+      content: `
+        <p>Nebraska is known for its dramatic seasonal changes, and as a runner based between Lincoln and Omaha, I've learned to embrace and adapt to all of them. Here's how to make the most of running through Nebraska's four distinct seasons.</p>
+
+        <h2>Spring: The Rebirth Season</h2>
+        <p>Spring in Nebraska can be unpredictable, with temperatures ranging from chilly to warm within the same week. Layering is key during these months. Start with a light base layer, add a breathable middle layer, and have a wind-resistant jacket ready. Watch out for afternoon thunderstorms and plan your runs accordingly.</p>
+
+        <h2>Summer: Heat Management</h2>
+        <p>Summer running in Nebraska means early mornings or evening sessions. The key is to hydrate well, wear light-colored breathable clothing, and listen to your body. If the heat index is extreme, consider moving your run indoors or to an air-conditioned track. Acclimate gradually to warmer temperatures over several weeks.</p>
+
+        <h2>Fall: Peak Running Season</h2>
+        <p>Fall is arguably the best time to be a runner in Nebraska. Cool temperatures, beautiful foliage, and ideal conditions make this the perfect season for building fitness. Take advantage of the comfortable weather to increase mileage or work on pace. This is also prime time for fall marathons and half marathons.</p>
+
+        <h2>Winter: Embrace the Cold</h2>
+        <p>Winter running requires proper gear and mindset. The key layers include a moisture-wicking base, an insulating middle layer, and a wind-resistant outer shell. Don't forget a hat or headband for your ears and gloves that can be easily removed as you warm up. Reflective gear and lights are essential for those early morning or evening runs when it's still dark.</p>
+
+        <h2>Trail Running Opportunities</h2>
+        <p>Nebraska offers excellent trail running options throughout the year. From the Loess Hills in the west to the trails at Platte River State Park, there's no shortage of scenic routes to explore. Each season offers a different perspective on these beautiful landscapes.</p>
+
+        <h2>Adapting Your Training</h2>
+        <p>Be flexible with your training plan based on weather conditions. If a winter storm hits, it's okay to move your long run to another day or do a treadmill workout. Consistency over time matters more than any single workout. Use seasonal transitions as recovery periods and build your base for the next season.</p>
+      `
+    },
+    {
+      slug: "running-community-lincoln-omaha",
+      title: "The Running Community in Lincoln and Omaha",
+      date: "2024-02-10",
+      author: "Matthew Brunken",
+      readTime: "4 min read",
+      excerpt: "Discover the vibrant running communities in Nebraska's two largest cities and how they support runners of all levels.",
+      content: `
+        <p>One of the best parts of being a runner in Nebraska is the incredible sense of community. Both Lincoln and Omaha have thriving running scenes that welcome runners of all abilities. Here's what you need to know about joining the fun.</p>
+
+        <h2>Lincoln Running Community</h2>
+        <p>Lincoln's running community is vibrant and welcoming. The Lincoln Running Company hosts regular group runs, and the city has an extensive trail system perfect for all skill levels. Whether you're training for the Lincoln Marathon or just starting out, you'll find plenty of running partners and support.</p>
+
+        <h2>Omaha Running Scene</h2>
+        <p>Omaha's running community is equally impressive. Groups like Omaha Running Club and various boutique running stores organize weekly runs that cater to different paces and preferences. The riverfront trails and parks provide beautiful backdrops for group runs.</p>
+
+        <h2>Group Runs</h2>
+        <p>Most running stores and clubs offer free weekly group runs. These are fantastic opportunities to meet other runners, discover new routes, and stay motivated. Many groups have different pace options, so there's always a welcoming place for beginners.</p>
+
+        <h2>Race Opportunities</h2>
+        <p>Both cities host numerous races throughout the year, from 5Ks to marathons. The Omaha Marathon, Lincoln Marathon, and various community races provide goals to work toward and celebrations of your hard work.</p>
+
+        <h2>Virtual Communities</h2>
+        <p>Don't forget about the online running community! Nebraska running groups on social media platforms provide virtual support, training advice, and a sense of connection between in-person gatherings.</p>
+
+        <h2>Getting Involved</h2>
+        <p>The best way to become part of the community is to show up. Most group runs welcome first-timers, and you'll quickly find that runners are some of the friendliest people you'll ever meet. Bring a smile, be ready to run, and prepare to make lasting connections.</p>
+      `
+    },
+    {
+      slug: "setting-running-goals",
+      title: "Setting and Achieving Your Running Goals",
+      date: "2024-01-25",
+      author: "Matthew Brunken",
+      readTime: "6 min read",
+      excerpt: "Learn how to set SMART goals for your running journey and stay motivated throughout your fitness transformation.",
+      content: `
+        <p>Setting goals is crucial for long-term running success. Whether you're aiming to complete your first 5K or qualify for Boston, having clear, well-defined goals can keep you motivated and on track. Here's how to set goals that work.</p>
+
+        <h2>The SMART Framework</h2>
+        <p>Apply the SMART criteria to your running goals:</p>
+        <ul>
+          <li><strong>Specific:</strong> Instead of "I want to run more," say "I want to run 20 miles per week."</li>
+          <li><strong>Measurable:</strong> How will you track progress? Mileage, pace, heart rate?</li>
+          <li><strong>Achievable:</strong> Is this goal realistic given your current fitness and schedule?</li>
+          <li><strong>Relevant:</strong> Does this goal align with your broader fitness aspirations?</li>
+          <li><strong>Time-bound:</strong> When do you want to achieve this by?</li>
+        </ul>
+
+        <h2>Short-Term vs. Long-Term Goals</h2>
+        <p>Balance short-term goals (this week, this month) with long-term goals (this year, 5 years). Short-term goals keep you engaged day-to-day, while long-term goals provide direction and motivation for the bigger picture.</p>
+
+        <h2>Process Goals vs. Outcome Goals</h2>
+        <p>Focus on process goals - things you can control like consistent training, strength work, and proper recovery. While outcome goals (finishing a race, hitting a specific pace) are important, excessive focus on outcomes you can't control can lead to frustration.</p>
+
+        <h2>Tracking Your Progress</h2>
+        <p>Keep a training log to track your runs, how you felt, and your achievements. Many runners find apps and GPS watches helpful for monitoring progress over time. Celebrate milestones along the way!</p>
+
+        <h2>Dealing with setbacks</h2>
+        <p>Injury, illness, and life circumstances will occasionally derail your training. This is normal and expected. The key is to adjust your goals as needed, focus on what you can do, and avoid being too hard on yourself.</p>
+
+        <h2>Accountability</h2>
+        <p>Share your goals with friends, family, or a running community. Having others aware of your aspirations can provide extra motivation and support when you need it most.</p>
+      `
+    }
+  ];
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout
+  title={`${post.title} - Matthew Brunken Blog`}
+  description={post.excerpt}
+  ogType="article"
+  publishedTime={post.date}
+  author={post.author}
+>
+  <article class="blog-post">
+    <header class="post-header">
+      <div class="container">
+        <div class="post-meta">
+          <time datetime={post.date}>{post.date}</time>
+          <span class="read-time">{post.readTime}</span>
+          <span class="author">by {post.author}</span>
+        </div>
+        <h1>{post.title}</h1>
+        <p class="excerpt">{post.excerpt}</p>
+      </div>
+    </header>
+
+    <div class="post-content">
+      <div class="container">
+        <div class="post-image">
+          <img
+            src="/images/profile.webp"
+            alt={`Matthew Brunken - ${post.title}`}
+            width="800"
+            height="400"
+            loading="lazy"
+          />
+        </div>
+        <div class="prose" set:html={post.content} />
+
+        <div class="post-footer">
+          <a href="/blog" class="back-link">← Back to Blog</a>
+          <div class="share-section">
+            <p>Share this article:</p>
+            <div class="share-links">
+              <a href={`https://www.facebook.com/sharer/sharer.php?u=https://matthewbrunken.me/blog/${post.slug}`} target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a href={`https://twitter.com/intent/tweet?url=https://matthewbrunken.me/blog/${post.slug}&text=${encodeURIComponent(post.title)}`} target="_blank" rel="noopener noreferrer">Twitter</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .post-header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .post-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    opacity: 0.9;
+    flex-wrap: wrap;
+  }
+
+  .post-meta time,
+  .post-meta .read-time,
+  .post-meta .author {
+    padding: 0 0.5rem;
+  }
+
+  .post-meta time:not(:last-child),
+  .post-meta .read-time {
+    border-right: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .post-header h1 {
+    font-size: 2.5rem;
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    line-height: 1.2;
+  }
+
+  .excerpt {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+
+  .post-content {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .post-content .container {
+    max-width: 800px;
+  }
+
+  .post-image {
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  .post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .prose {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #374151;
+  }
+
+  .prose h2 {
+    font-size: 1.75rem;
+    color: #1e3a5f;
+    margin: 2.5rem 0 1rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.5rem;
+  }
+
+  .prose ul {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.75rem;
+  }
+
+  .prose strong {
+    color: #1e3a5f;
+  }
+
+  .post-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .back-link {
+    color: #2563eb;
+    font-weight: 500;
+  }
+
+  .share-section {
+    text-align: right;
+  }
+
+  .share-section p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+  }
+
+  .share-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .share-links a {
+    padding: 0.5rem 1rem;
+    background: #f3f4f6;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: #374151;
+    transition: background 0.2s;
+  }
+
+  .share-links a:hover {
+    background: #e5e7eb;
+  }
+
+  @media (max-width: 768px) {
+    .post-header h1 {
+      font-size: 1.75rem;
+    }
+
+    .post-footer {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .share-section {
+      text-align: center;
+    }
+  }
+</style>

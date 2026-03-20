@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Terms of Service - Matthew Brunken";
+const pageDescription = "Terms of service for Matthew Brunken's website. Read our terms and conditions governing your use of this website.";
+
+const customHeadHTML = `
+<meta name="robots" content="noindex, follow" />
+`;
+---
+
+<Layout title={pageTitle} description={pageDescription} customHeadHTML={customHeadHTML}>
+  <section class="page-header">
+    <div class="container">
+      <h1>Terms of Service</h1>
+      <p class="subtitle">Last updated: March 2024</p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container">
+      <div class="legal-content">
+        <h2>Agreement to Terms</h2>
+        <p>By accessing or using the website matthewbrunken.me (the "Website"), operated by Matthew Brunken ("we", "our", or "us"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Website.</p>
+
+        <h2>Use of the Website</h2>
+        <p>You may use our Website only for lawful purposes and in accordance with these Terms. You agree not to use the Website:</p>
+        <ul>
+          <li>In any way that violates any applicable federal, state, local, or international law or regulation.</li>
+          <li>To transmit, or procure the sending of, any advertising or promotional material, including any "junk mail", "chain letter", "spam", or any other similar solicitation.</li>
+          <li>To impersonate or attempt to impersonate the Website, Matthew Brunken, or any other person or entity.</li>
+          <li>To engage in any other conduct that restricts or inhibits anyone's use or enjoyment of the Website.</li>
+        </ul>
+
+        <h2>Intellectual Property Rights</h2>
+        <p>The Website and its original content, features, and functionality are and will remain the exclusive property of Matthew Brunken. The Website is protected by copyright, trademark, and other laws. Our trademarks may not be used in connection with any product or service without the prior written consent of Matthew Brunken.</p>
+
+        <h2>Links to Other Websites</h2>
+        <p>Our Website may contain links to third-party websites or services that are not owned or controlled by Matthew Brunken. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services. You acknowledge and agree that we shall not be responsible or liable for any damage or loss caused by or in connection with the use of any such third-party websites.</p>
+
+        <h2>Limitation of Liability</h2>
+        <p>In no event shall Matthew Brunken, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Website.</p>
+
+        <h2>Changes to Terms</h2>
+        <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide notice of any significant changes by posting the new Terms on this page and updating the "Last updated" date.</p>
+
+        <h2>Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the State of Nebraska, United States, without regard to its conflict of law provisions.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions about these Terms, please contact us:</p>
+        <ul>
+          <li>By email: contact@matthewbrunken.me</li>
+          <li>By visiting our contact page: <a href="/contact">Contact Page</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    opacity: 0.9;
+  }
+
+  .content {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-content h2 {
+    font-size: 1.5rem;
+    color: #1e3a5f;
+    margin: 2rem 0 1rem;
+  }
+
+  .legal-content h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal-content p {
+    color: #4b5563;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .legal-content ul {
+    margin: 1rem 0 1rem 1.5rem;
+    color: #4b5563;
+  }
+
+  .legal-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .legal-content a {
+    color: #2563eb;
+  }
+</style>

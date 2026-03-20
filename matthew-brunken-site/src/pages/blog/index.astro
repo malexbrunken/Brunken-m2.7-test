@@ -1,0 +1,188 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const pageTitle = "Blog - Matthew Brunken's Running Journey & Insights";
+const pageDescription = "Read articles about running, fitness, training tips, and life in Nebraska from Matthew Brunken. Explore my journey as a runner based in Lincoln and Omaha.";
+
+const blogPosts = [
+  {
+    slug: "starting-your-running-journey",
+    title: "Starting Your Running Journey: A Beginner's Guide",
+    excerpt: "Thinking about taking up running? Here's everything you need to know to start your running journey on the right foot.",
+    date: "2024-03-15",
+    readTime: "5 min read"
+  },
+  {
+    slug: "training-through-nebraska-seasons",
+    title: "Training Through Nebraska's Four Seasons",
+    excerpt: "From hot summer mornings to cold winter trails, learn how to adapt your running routine to Nebraska's diverse weather conditions.",
+    date: "2024-02-28",
+    readTime: "7 min read"
+  },
+  {
+    slug: "running-community-lincoln-omaha",
+    title: "The Running Community in Lincoln and Omaha",
+    excerpt: "Discover the vibrant running communities in Nebraska's two largest cities and how they support runners of all levels.",
+    date: "2024-02-10",
+    readTime: "4 min read"
+  },
+  {
+    slug: "setting-running-goals",
+    title: "Setting and Achieving Your Running Goals",
+    excerpt: "Learn how to set SMART goals for your running journey and stay motivated throughout your fitness transformation.",
+    date: "2024-01-25",
+    readTime: "6 min read"
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <section class="page-header">
+    <div class="container">
+      <h1>Blog</h1>
+      <p class="subtitle">Thoughts on Running, Fitness, and Life in Nebraska</p>
+    </div>
+  </section>
+
+  <section class="blog-content">
+    <div class="container">
+      <div class="blog-grid">
+        {blogPosts.map((post) => (
+          <article class="blog-card">
+            <div class="blog-meta">
+              <time datetime={post.date}>{post.date}</time>
+              <span class="read-time">{post.readTime}</span>
+            </div>
+            <h2>{post.title}</h2>
+            <p>{post.excerpt}</p>
+            <a href={`/blog/${post.slug}`} class="read-more">Read Article</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="container">
+      <h2>Stay Updated</h2>
+      <p>Subscribe to get notified when I publish new articles about running, training, and life in Nebraska.</p>
+      <a href="/contact" class="btn btn-primary">Contact Me to Subscribe</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, #2563eb 0%, #1e3a5f 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+  }
+
+  .blog-content {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .blog-card {
+    background: #f9fafb;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  }
+
+  .blog-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+
+  .read-time {
+    padding-left: 1rem;
+    border-left: 1px solid #d1d5db;
+  }
+
+  .blog-card h2 {
+    font-size: 1.5rem;
+    color: #1e3a5f;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .blog-card p {
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #2563eb;
+    font-weight: 500;
+  }
+
+  .read-more::after {
+    content: "→";
+    transition: transform 0.2s;
+  }
+
+  .blog-card:hover .read-more::after {
+    transform: translateX(4px);
+  }
+
+  .newsletter {
+    padding: 4rem 0;
+    background: #f3f4f6;
+    text-align: center;
+  }
+
+  .newsletter h2 {
+    font-size: 2rem;
+    color: #1e3a5f;
+    margin-bottom: 1rem;
+  }
+
+  .newsletter p {
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+    color: #6b7280;
+    line-height: 1.7;
+  }
+
+  .btn-primary {
+    background-color: #2563eb;
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,384 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonicalURL?: string;
+  ogImage?: string;
+  ogType?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  customHeadHTML?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalURL = Astro.url.href,
+  ogImage = '/images/profile.webp',
+  ogType = 'website',
+  publishedTime,
+  modifiedTime,
+  author = 'Matthew Brunken',
+  customHeadHTML = ''
+} = Astro.props;
+
+const siteName = 'Matthew Brunken';
+const profileImage = '/images/profile.webp';
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Matthew Brunken",
+  "image": profileImage,
+  "url": "https://matthewbrunken.me",
+  "sameAs": [
+    "https://www.facebook.com/matthew.brunken",
+    "https://www.facebook.com/MatthewBrunken.running/",
+    "https://www.instagram.com/brunkenmalex/",
+    "https://x.com/matthew_brunken",
+    "https://matthewbrunken.me"
+  ],
+  "homeLocation": [
+    {
+      "@type": "Place",
+      "name": "Lincoln, Nebraska",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.8136,
+        "longitude": -96.7026
+      }
+    },
+    {
+      "@type": "Place",
+      "name": "Omaha, Nebraska",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.2565,
+        "longitude": -95.9345
+      }
+    }
+  ],
+  "description": "Matthew Brunken - Professional profile, running journey, and blog from Lincoln and Omaha, Nebraska."
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+    <meta property="twitter:creator" content="@matthew_brunken" />
+
+    <!-- Article specific meta -->
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    <meta property="article:author" content={author} />
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="US-NE" />
+    <meta name="geo.placename" content="Lincoln, Omaha" />
+    <meta name="geo.position" content="41.2565;-95.9345" />
+    <meta name="ICBM" content="41.2565, -95.9345" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="/images/profile.webp" />
+    <link rel="apple-touch-icon" href="/images/profile.webp" />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- JSON-LD Person Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+    <!-- Custom Head Injection -->
+    <Fragment set:html={customHeadHTML} />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      a {
+        color: #2563eb;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: #2563eb;
+        color: white;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        transition: background-color 0.2s;
+      }
+
+      .btn:hover {
+        background-color: #1d4ed8;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="nav-content">
+          <a href="/" class="logo">Matthew Brunken</a>
+          <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <style>
+      header {
+        background: white;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        position: relative;
+      }
+
+      .logo {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #2563eb;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: #374151;
+        font-weight: 500;
+      }
+
+      .nav-links a:hover {
+        color: #2563eb;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: white;
+          flex-direction: column;
+          padding: 1rem;
+          gap: 1rem;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+      }
+    </style>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <img src="/images/profile.webp" alt="Matthew Brunken - Professional profile photo" width="40" height="40" loading="lazy" />
+            <span>Matthew Brunken</span>
+          </div>
+          <div class="footer-links">
+            <a href="/about">About</a>
+            <a href="/blog">Blog</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+          </div>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/matthew.brunken" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/brunkenmalex/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://x.com/matthew_brunken" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+          <p class="footer-copy">&copy; 2024 Matthew Brunken. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      footer {
+        background: #1f2937;
+        color: #f3f4f6;
+        padding: 3rem 0;
+        margin-top: auto;
+      }
+
+      .footer-content {
+        display: grid;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        font-weight: 600;
+        font-size: 1.125rem;
+      }
+
+      .footer-brand img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem 2rem;
+      }
+
+      .footer-links a {
+        color: #9ca3af;
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .footer-social a {
+        color: #9ca3af;
+        transition: color 0.2s;
+      }
+
+      .footer-social a:hover {
+        color: white;
+      }
+
+      .footer-copy {
+        color: #6b7280;
+        font-size: 0.875rem;
+      }
+    </style>
+
+    <script>
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const navLinks = document.querySelector('.nav-links');
+
+      if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          const isExpanded = navLinks.classList.contains('active');
+          mobileMenuBtn.setAttribute('aria-expanded', isExpanded.toString());
+        });
+      }
+    </script>
+  </body>
+</html>
